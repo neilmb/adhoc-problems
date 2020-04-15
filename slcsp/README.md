@@ -3,7 +3,8 @@
 The second-lowest cost silver plan (SLCSP) for a particular geographic region
 is used as a benchmark for health plan costs in a particular area. This code
 takes a file of zip codes as input and outputs a CSV file with the SLCSP for
-those zip codes.
+those zip codes. This problem is based on the original description at
+<https://homework.adhoc.team/slcsp/>.
 
 The data files required are available from
 <https://homework.adhoc.team/static/slcsp-aab498af8d435c61f13227d0e5702a23.zip>.
@@ -26,7 +27,7 @@ python3 slcsp.py slcsp.csv > slcsp_rates.csv
 
 ## Development
 
-Development dependencies for formatting and running the unit tests can be
+Development dependencies for code formatting and running the unit tests can be
 installed with pip. You should use a virtual environment
 
 ```
