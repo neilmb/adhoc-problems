@@ -101,7 +101,9 @@ def main(argv=None):
         )
         return 1
 
-    slcsp = SLCSP()
+    # TODO: pass data filenames as arguments to this object
+    # and make them command line options
+    slcsp = SLCSP()  # depends on zips.csv and plans.csv in this directory
 
     with open(infile_name) as infile:
         reader = csv.DictReader(infile)
