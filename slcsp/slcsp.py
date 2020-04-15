@@ -41,6 +41,7 @@ class SLCSP:
             reader = csv.DictReader(zips_file)
             for row in reader:
                 zipcode = row["zipcode"]
+                # TODO: use a namedtuple for the rate_area item?
                 rate_area = (row["state"], row["rate_area"])
                 if zipcode in result:
                     # second time the zip appeared
@@ -103,14 +104,13 @@ def main(argv=None):
     slcsp = SLCSP()
 
     with open(infile_name) as infile:
-        reader = csv.reader(infile)
-        # skip the input header line
-        next(reader)
+        reader = csv.DictReader(infile)
 
         writer = csv.writer(sys.stdout)
         writer.writerow(["zipcode", "rate"])
 
-        for zipcode, _ in reader:
+        for row in reader:
+            zipcode = row["zipcode"]
             rate = slcsp.compute_slcsp(zipcode)
             # this rate is a string, try to format it better
             try:
